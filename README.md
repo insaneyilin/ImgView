@@ -24,6 +24,6 @@ To view the images you will need to access your remote server's port.  You can e
 ```
 ssh remote -N -L localhost:8000:localhost:8000
 ```
-and point your browser to <http://0.0.0.0:8070/>.
+and point your browser to <http://0.0.0.0:8000/>.
 
 
