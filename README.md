@@ -4,7 +4,11 @@ View images on a remote server through your web browser.
 
 Forked from [rexlee/ImgView](https://github.com/rexlee/ImgView), `next` and `prev` button added in template file.
 
+<img src="https://github.com/insaneyilin/ImgView/blob/master/screenshots/img_viewer_brower.gif" height="260" width="640" />
+
 ---
+
+(Original README)
 
 ViewImg provides an alternative to `ssh -X` and other hacks to view a list of images in a directory on a remote server.  It should provide a base level of functionality for researchers in computer vision and image processing.  
 
