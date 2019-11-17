@@ -2,16 +2,43 @@
 <html>
     <head>
         <title>Image viewer</title>
+        <script type="text/javascript">
+            var image_paths = {{ image_list|tojson }};
+            image_paths = JSON.parse(image_paths)
+            var img_idx = 0;
+            function bindBtn() {
+                var p_btn = document.getElementById("previousButton");
+                var n_btn = document.getElementById("nextButton");
+                var img = document.getElementById("img");
+                img.src = image_paths[img_idx];
+                n_btn.addEventListener("click", function() {
+                    ++img_idx;
+                    if (img_idx >= image_paths.length) {
+                        img_idx = 0;
+                    }
+                    img.src = image_paths[img_idx];
+                }, false);
+                p_btn.addEventListener("click", function() {
+                    --img_idx;
+                    if (img_idx < 0) {
+                        img_idx = image_paths.length - 1;
+                    }
+                    img.src = image_paths[img_idx];
+                }, false);
+            }
+        </script>
     </head>
-    <body>
+    <body onload="bindBtn()">
         {% if not image_list %}
             <p> No images </p>
         {% endif %}
-        {% for image_path in image_list %}
         <div align="middle">
-            <img src="{{ image_path }}">
+            <img id="img" src="">
         </div>
         <br />
-        {% endfor %}
+        <div id="controlDiv">
+        <button id="previousButton">prev</button>
+        <button id="nextButton">next</button>
+        </div>
     </body>
 </html>

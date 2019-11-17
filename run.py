@@ -26,6 +26,7 @@ def index():
     for cur_type in types:
         image_list.extend(glob.glob(os.path.join(image_dir, cur_type)))
     image_list = [url_for("static", filename=os.path.basename(x)) for x in image_list]
+    image_list = json.dumps(image_list)
     return render_template("index.html", image_list = image_list)
 
 app.run(host='0.0.0.0', port=port, threaded=True) 
